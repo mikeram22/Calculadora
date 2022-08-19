@@ -1,10 +1,16 @@
+@font-face {
+  font-family: calculator;
+  src: url(./fuentes/Calculator.ttf);
+}
+
 .contenedor {
   width: 500px;
   height: auto;
-  border: 2px solid black;
+  border: 2px solid brown;
   border-radius: 20px;
   margin: 25px auto;
   padding: 20px;
+  background-color: brown;
 }
 
 .calculadora {
@@ -12,6 +18,7 @@
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(7, 1fr);
   gap: 20px;
+  background-color: brown;
 }
 
 .display{
@@ -21,43 +28,48 @@
   display: grid;
   grid-template-columns: 1, 1fr;
   grid-template-rows: repeat(2, 1fr);
-  border: 2px solid black;
   border-radius: 10px;
+  background-color: rgb(255, 255, 255); 
+  align-items: center;
+  background-color: black;
+}
+
+.display__resultado {
+  text-align: right;
+  padding-right: 10px;
+  font-size: 70px;
+  font-family: calculator;
+  color: wheat;
+  overflow: hidden;
+}
+
+.display__proceso {
+  text-align: right;
+  padding-right: 10px;
+  font-size: 40px;
+  font-family: calculator;
+  color: wheat;
+  overflow: hidden;
 }
 
 .borradoTotal {
   grid-area: 3 / 1 / 4 / 3;
-  border: 1px solid black;
+  border: 1px solid wheat;
   border-radius: 20px;
   font-size: 25px;
+  cursor: pointer;
+  background-color: brown;
+  color: wheat;
+  box-shadow: 5px 5px 5px black;
 }
 
-.borradoParcial {
-  border: 1px solid black;
+.borradoParcial, .numero, .operador, .punto, .igual{
+  border: 1px solid wheat;
   border-radius: 20px;
   font-size: 25px;
+  cursor: pointer;
+  background-color: brown;
+  color: wheat;
+  box-shadow: 5px 5px 5px black;
 }
 
-.numero {
-  border: 1px solid black;
-  border-radius: 20px;
-  font-size: 25px;
-}
-
-.operador {
-  border: 1px solid black;
-  border-radius: 20px;
-  font-size: 25px;
-}
-
-.punto{
-  border: 1px solid black;
-  border-radius: 20px;
-  font-size: 25px;
-}
-
-.igual {
-  border: 1px solid black;
-  border-radius: 20px;
-  font-size: 25px;
-}
