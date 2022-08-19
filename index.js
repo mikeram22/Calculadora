@@ -11,26 +11,23 @@ let valor2 = '';
 let valorOperador = undefined;
 
 
-
-function valores(valor1, valor2) {
-  if (valorOperador) {
-    valor2 += valor2.textContent; 
-  }else {
-
-  }
-}
-
-
-
 botonNumero.forEach(numero => {
   numero.addEventListener('click', () => {
     displayProceso.textContent += numero.textContent;
+    if (valorOperador) {
+      valor2 += numero.textContent;
+    } else {
+      valor1 += numero.textContent;
+    }
+    console.log(valor1);
+    console.log(valor2);
   })
 })
 
-botonOperador.forEach(numero => {
-  numero.addEventListener('click', () => {
-    displayProceso.textContent += numero.textContent;
+botonOperador.forEach(operador => {
+  operador.addEventListener('click', () => {
+    displayProceso.textContent += operador.textContent;
+    valorOperador = operador.textContent;
   })
 })
 
