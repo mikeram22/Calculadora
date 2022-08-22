@@ -48,6 +48,11 @@ botonOperador.forEach(operador => {
 
 botonBorrarParcial.addEventListener('click', () => {
   displayProceso.textContent = displayProceso.textContent.slice(0,-1);
+  if (valorOperador) {
+    valor2 = valor2.slice(0,-1);
+  } else{
+    valor1 = valor1.slice(0,-1);
+  }
   })
 
 //hacemos el llamado del botón borrar total y le agregamos un evento tipo click.
