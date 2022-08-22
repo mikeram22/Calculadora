@@ -74,7 +74,7 @@ botonIgual.addEventListener('click', () => {
 
   //Función que contiene el Swith para hacer los calculos
 
-  function realizarOperacion() {
+  function realizarOperacion(estado) {
     let num1 = parseFloat(valor1);
     let num2 = parseFloat(valor2);
     let resultadoOperacion = "";
@@ -102,4 +102,11 @@ botonIgual.addEventListener('click', () => {
     displayResultado.textContent = resultadoOperacion;
     valor1 = resultadoOperacion;
     valor2 = '';
+
+    if (estado == 'igual') {
+      displayProceso.textContent = '';
+      valorOperador = undefined;
+    } else if (estado == 'operando') {
+      displayProceso.textContent = valorOperador;
+    }
   }
