@@ -30,8 +30,17 @@ botonNumero.forEach(numero => {
 
 botonOperador.forEach(operador => {
   operador.addEventListener('click', () => {
-    displayProceso.textContent += operador.textContent;
-    valorOperador = operador.textContent;   
+
+    if (valor1) {
+      if (!valorOperador) {
+        displayProceso.textContent += operador.textContent;
+        valorOperador = operador.textContent;
+      } else {
+        if (valor2) {
+          realizarOperacion('operando');
+        }
+      }
+    }  
   });
 });
 
