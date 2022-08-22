@@ -53,7 +53,7 @@ botonBorrarParcial.addEventListener('click', () => {
   } else{
     valor1 = valor1.slice(0,-1);
   }
-  })
+  });
 
 //hacemos el llamado del botón borrar total y le agregamos un evento tipo click.
 
@@ -100,4 +100,6 @@ botonIgual.addEventListener('click', () => {
         break;
     }
     displayResultado.textContent = resultadoOperacion;
+    valor1 = resultadoOperacion;
+    valor2 = '';
   }
