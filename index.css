@@ -63,7 +63,7 @@
   box-shadow: 5px 5px 5px black;
 }
 
-.borradoParcial, .numero, .operador, .punto, .igual{
+.borradoParcial, .numero, .operador, .igual{
   border: 1px solid wheat;
   border-radius: 20px;
   font-size: 25px;

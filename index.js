@@ -2,7 +2,6 @@ const botonNumero = document.querySelectorAll('.numero');
 const botonOperador = document.querySelectorAll('.operador');
 const botonBorrarTotal = document.querySelector('.borradoTotal');
 const botonBorrarParcial = document.querySelector('.borradoParcial');
-const botonPunto = document.querySelector('.punto');
 const botonIgual = document.querySelector('.igual');
 const displayResultado = document.querySelector('.display__resultado');
 const displayProceso = document.querySelector('.display__proceso');
@@ -12,40 +11,79 @@ let valorOperador = undefined;
 
 
 botonNumero.forEach(numero => {
+
+  let numeroText = numero.textContent;
+
   numero.addEventListener('click', () => {
-    displayProceso.textContent += numero.textContent;
+
+    if (numeroText != '.' || displayProceso.textContent.indexOf('.')== -1) {
+      displayProceso.textContent += numeroText == '.' && displayProceso.textContent == '' ? '0.' : numeroText;
+    }  
+
     if (valorOperador) {
-      valor2 += numero.textContent;
+      valor2 += numeroText;
     } else {
-      valor1 += numero.textContent;
+      valor1 += numeroText;
     }
-    console.log(valor1);
-    console.log(valor2);
-  })
-})
+  });
+});
 
 botonOperador.forEach(operador => {
   operador.addEventListener('click', () => {
     displayProceso.textContent += operador.textContent;
-    valorOperador = operador.textContent;
-  })
-})
+    valorOperador = operador.textContent;   
+  });
+});
+
+//hacemos el llamado del botón borrar parcial y le agregamos un evento tipo click.
 
 botonBorrarParcial.addEventListener('click', () => {
   displayProceso.textContent = displayProceso.textContent.slice(0,-1);
   })
 
+//hacemos el llamado del botón borrar total y le agregamos un evento tipo click.
 
 botonBorrarTotal.addEventListener('click', () => {
   displayProceso.textContent = '';
+  displayResultado.textContent = '';
+  valor1 = '';
+  valor2 = '';
+  valorOperador = '';
   })
 
+//hacemos el llamado del botón igual y le agregamos un evento tipo click.
 
 botonIgual.addEventListener('click', () => {
-  displayProceso.textContent += botonIgual.textContent;
+  realizarOperacion('igual');
+  displayProceso.textContent = '';
   })
 
+  //Función que contiene el Swith para hacer los calculos
 
-botonPunto.addEventListener('click', () => {
-  displayProceso.textContent += botonPunto.textContent;
-  })
+  function realizarOperacion() {
+    let num1 = parseFloat(valor1);
+    let num2 = parseFloat(valor2);
+    let resultadoOperacion = "";
+    
+    switch (valorOperador) {
+      case '+':
+        resultadoOperacion = num1 + num2;
+        break;
+      case '-':
+        resultadoOperacion = num1 - num2;
+        break;
+      case '*':
+        resultadoOperacion = num1 * num2;
+        break;
+      case '/':
+        resultadoOperacion = num1 / num2;
+        break;
+      case '%':
+        resultadoOperacion = ((num1 * num2) / 100);
+        break;
+    
+      default:
+        break;
+    }
+    displayResultado.textContent = resultadoOperacion;
+  }
